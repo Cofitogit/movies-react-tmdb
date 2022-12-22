@@ -1,17 +1,26 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { LoadingMovie } from "../components/LoadingMovie";
 import { get } from "../utils/httpClient";
 import styles from "./MovieDetails.module.css";
 
 export function MovieDetails() {
   const { movieId } = useParams();
   const [movie, setMovie] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
+    setIsLoading(true);
+
     get("/movie/" + movieId).then((data) => {
+      setIsLoading(false);
       setMovie(data);
     });
   }, [movieId]);
+
+  if (isLoading) {
+    return <LoadingMovie />;
+  }
 
   if (!movie) {
     return null;
