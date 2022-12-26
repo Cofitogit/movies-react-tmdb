@@ -9,26 +9,25 @@
 
 .searchButton {
     position: absolute;
-    right: 0;
+    color: black;
+    right: 8px;
     top: 0;
-    cursor: pointer;
     height: 100%;
     border: none;
     background: none;
-    padding-top: 5px;
 }
 
 .searchInput {
-    border-top-color: red;
     background-color: black;
     height: 28px;
     color: gray;
     border-radius: 10px;
     padding: 5px 30px 5px 10px;
+    border: 1px solid grey;
+    border-top: 1px solid red;
 }
 
 .searchInput:focus {
     background-color: white;
     outline-style: none;
-    color: black;
 }
